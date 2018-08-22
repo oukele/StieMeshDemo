@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>演示页面</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style>
+        html,body{width:100%;height: 100%}
+        table{width: 1150px;height:500px;margin: auto}
+        table,td,th{border: 1px solid #e6e6e6;border-collapse:collapse; }
+        body{-moz-background-size:100% 100%; background-size:100% 100%;background-image:url("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2288745969,1113149345&fm=27&gp=0.jpg");background-repeat: no-repeat}
+        * { margin: 0; padding: 0; }
+        table { border-collapse: collapse; text-align: center;  }
+        /*关键设置 tbody出现滚动条*/
+        table tbody {
+            display: block;
+            height: 500px;
+            overflow-y: scroll;overflow-x:hidden;
+        }
+        table thead,  tbody tr { display: table;width: 100%; table-layout: fixed;  }
+        table thead th {  height: 40px  }
+        table tbody td {height: 30px }
+    </style>
+</head>
+
+<body>
+<table width="80%" border="1">
+    <thead>
+    <tr>
+        <th style="width:230px">序号</th>
+        <th style="width:231px">标题链接</th>
+        <th style="width:231px">时间</th>
+        <th style="width:231px">来源</th>
+        <th style="width:249px">备注</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+    <marquee><img width="100px" height="100px" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534929596651&di=6942106458a1267f11d24c879071342a&imgtype=0&src=http%3A%2F%2Fimg18.3lian.com%2Fd%2Ffile%2F201710%2F13%2Ff9a8fb04879fd40279fe8eaba03b5abd.gif" /> </marquee>
+</table>
+</body>
+<script src="js/jquery-3.3.1.js"></script>
+<script>
+    var sum=[
+        ["https://www.cnblogs.com/oukele","博客首页","2018年8月18日","博客","正常"],
+        ["https://www.cnblogs.com/oukele/p/9516743.html","HTML 获取class里的多个值 和 dataset的使用","2018年8月22日","博客","正常"]
+    ];
+
+    for(var i=0;i<sum.length;i++){
+        var tr=$("<tr/>");
+        //序号
+        $("<td/>").html(i+1).appendTo(tr);
+        //标题链接
+        var a="<a href='"+sum[i][0]+"' target='_blank'>"+sum[i][1]+"</a>"
+        $("<td/>").html(a).appendTo(tr);
+        //时间
+        $("<td/>").html(sum[i][2]).appendTo(tr);
+        //来源
+        $("<td/>").html(sum[i][3]).appendTo(tr);
+        //备注
+        $("<td/>").html(sum[i][4]).appendTo(tr);
+        $("table tbody").append(tr);
+
+    }
+
+</script>
+</html>
